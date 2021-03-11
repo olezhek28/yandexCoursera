@@ -1,7 +1,6 @@
 #pragma once
 
 #include <algorithm>
-#include <cstdlib>
 
 template <typename T>
 class SimpleVector
@@ -25,33 +24,23 @@ public:
 
 private:
 	T* data;
-	T* _end;
 	size_t size = 0;
 	size_t capacity = 0;
 };
 
 template <typename T>
-SimpleVector<T>::SimpleVector()
-{
-	data = nullptr;
-	_end = nullptr;
-}
+SimpleVector<T>::SimpleVector() : data(nullptr) { }
 
 template <typename T>
-SimpleVector<T>::SimpleVector(size_t size)
+SimpleVector<T>::SimpleVector(size_t size) : capacity(size), size(size)
 {
-	this->capacity = 2*size;
 	data = new T[capacity];
-	_end = data + size;
-	this->size = size;
 }
 
 template <typename T>
 SimpleVector<T>::~SimpleVector()
 {
 	delete[] data;
-	size = 0;
-	capacity = 0;
 }
 
 template <typename T>
@@ -69,7 +58,7 @@ T* SimpleVector<T>::begin()
 template <typename T>
 T* SimpleVector<T>::end()
 {
-	return _end;
+	return data + size;
 }
 
 template <typename T>
@@ -81,7 +70,7 @@ const T* SimpleVector<T>::begin() const
 template <typename T>
 const T* SimpleVector<T>::end() const
 {
-	return _end;
+	return data + size;
 }
 
 template <typename T>
@@ -99,25 +88,16 @@ size_t SimpleVector<T>::Capacity() const
 template <typename T>
 void SimpleVector<T>::PushBack(const T& value)
 {
-	if (capacity == 0)
+	if (size >= capacity)
 	{
-		capacity = 2;
-		data = new T[capacity];
-		//_end = data + capacity;
-	}
-	
-	if (size == capacity)
-	{
-		capacity = 2*size;
+		capacity = capacity == 0 ? 1 : 2*capacity;
 		T* tmp = new T[capacity];
-		std::copy(data, _end, tmp);
+		std::copy(begin(), end(), tmp);
 
 		delete[] data;
 
 		data = tmp;
 	}
 
-	data[size] = value;
-	size++;
-	_end = data + size;
+	data[size++] = value;
 }
