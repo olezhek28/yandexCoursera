@@ -1,8 +1,7 @@
-#include "SimpleVector.h"
+#include "simpleVector.h"
 #include "testRunner.h"
 
 #include <algorithm>
-#include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
