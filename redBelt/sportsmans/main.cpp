@@ -8,6 +8,8 @@ int main()
 
 	std::cin >> numSportsmans;
 
+	sportsmans.reserve(numSportsmans);
+
 	while(numSportsmans-- > 0)
 	{
 		int numberSportsman, numberNextSportsman;

@@ -1,6 +1,7 @@
 #include "sportsmans.h"
 
 #include <iostream>
+#include <algorithm>
 
 void Sportsmans::add(int numberSportsman, int numberNextSportsman)
 {
@@ -22,4 +23,9 @@ void Sportsmans::print()
 	{
 		std::cout << value << '\n';
 	}
+}
+
+void Sportsmans::reserve(int size)
+{
+	list.reserve(size);
 }
