@@ -27,6 +27,7 @@ private:
 	T* data;
 	T* _end;
 	size_t size = 0;
+	size_t capacity = 0;
 };
 
 template <typename T>
@@ -39,15 +40,18 @@ SimpleVector<T>::SimpleVector()
 template <typename T>
 SimpleVector<T>::SimpleVector(size_t size)
 {
-	data = new T[size];
+	this->capacity = 2*size;
+	data = new T[capacity];
 	_end = data + size;
-	this->size = Capacity();
+	this->size = size;
 }
 
 template <typename T>
 SimpleVector<T>::~SimpleVector()
 {
 	delete[] data;
+	size = 0;
+	capacity = 0;
 }
 
 template <typename T>
@@ -89,21 +93,23 @@ size_t SimpleVector<T>::Size() const
 template <typename T>
 size_t SimpleVector<T>::Capacity() const
 {
-	return _end - data;
+	return capacity;
 }
 
 template <typename T>
 void SimpleVector<T>::PushBack(const T& value)
 {
-	if (Capacity() == 0)
+	if (capacity == 0)
 	{
-		data = new T[1];
-		_end = data + 1;
+		capacity = 2;
+		data = new T[capacity];
+		//_end = data + capacity;
 	}
 	
-	if (size == Capacity())
+	if (size == capacity)
 	{
-		T* tmp = new T[2*size];
+		capacity = 2*size;
+		T* tmp = new T[capacity];
 		std::copy(data, _end, tmp);
 
 		delete[] data;
