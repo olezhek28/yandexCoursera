@@ -8,9 +8,11 @@ class SimpleVector
 public:
 	SimpleVector();
 	explicit SimpleVector(size_t size);
+	SimpleVector(const SimpleVector<T>& rhs);
 	~SimpleVector();
 
 	T& operator[](size_t index);
+	void operator=(const SimpleVector<T>& rhs);
 
 	T* begin();
 	T* end();
@@ -38,6 +40,15 @@ SimpleVector<T>::SimpleVector(size_t size) : capacity(size), size(size)
 }
 
 template <typename T>
+SimpleVector<T>::SimpleVector(const SimpleVector<T>& rhs)
+{
+	data = new T[rhs.Capacity()];
+	std::copy(rhs.begin(), rhs.end(), data);
+	size = rhs.Size();
+	capacity = rhs.Capacity();
+}
+
+template <typename T>
 SimpleVector<T>::~SimpleVector()
 {
 	delete[] data;
@@ -47,6 +58,23 @@ template <typename T>
 T& SimpleVector<T>::operator[](size_t index)
 {
 	return data[index];
+}
+
+template <typename T>
+void SimpleVector<T>::operator=(const SimpleVector<T>& rhs)
+{
+	if (this->Capacity() >= rhs.Size())
+	{
+		std::copy(rhs.begin(), rhs.end(), data);
+		size = rhs.Size();
+	}
+	else
+	{
+		SimpleVector<T> tmp(rhs);
+		std::swap(data, tmp.data);
+		std::swap(size, tmp.size);
+		std::swap(capacity, tmp.capacity);
+	}
 }
 
 template <typename T>
