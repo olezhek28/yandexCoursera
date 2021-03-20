@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "groupHeavyStrings", "groupH
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "splitIntoSentences", "splitIntoSentences\splitIntoSentences.vcxproj", "{ED9C9A98-384E-4356-A836-B8465FC91B18}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simpleVectorNoCopy", "simpleVectorNoCopy\simpleVectorNoCopy.vcxproj", "{8001E11F-819C-4DAE-9A72-CA40E12C4DB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -88,6 +90,14 @@ Global
 		{ED9C9A98-384E-4356-A836-B8465FC91B18}.Release|x64.Build.0 = Release|x64
 		{ED9C9A98-384E-4356-A836-B8465FC91B18}.Release|x86.ActiveCfg = Release|Win32
 		{ED9C9A98-384E-4356-A836-B8465FC91B18}.Release|x86.Build.0 = Release|Win32
+		{8001E11F-819C-4DAE-9A72-CA40E12C4DB3}.Debug|x64.ActiveCfg = Debug|x64
+		{8001E11F-819C-4DAE-9A72-CA40E12C4DB3}.Debug|x64.Build.0 = Debug|x64
+		{8001E11F-819C-4DAE-9A72-CA40E12C4DB3}.Debug|x86.ActiveCfg = Debug|Win32
+		{8001E11F-819C-4DAE-9A72-CA40E12C4DB3}.Debug|x86.Build.0 = Debug|Win32
+		{8001E11F-819C-4DAE-9A72-CA40E12C4DB3}.Release|x64.ActiveCfg = Release|x64
+		{8001E11F-819C-4DAE-9A72-CA40E12C4DB3}.Release|x64.Build.0 = Release|x64
+		{8001E11F-819C-4DAE-9A72-CA40E12C4DB3}.Release|x86.ActiveCfg = Release|Win32
+		{8001E11F-819C-4DAE-9A72-CA40E12C4DB3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
