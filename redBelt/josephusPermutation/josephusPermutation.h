@@ -22,7 +22,7 @@ void MakeJosephusPermutation(RandomIt first, RandomIt last, uint32_t step_size)
 	
 	while (!pool.empty()) 
 	{
-		auto it = next(, cur_pos);
+		auto it = next(pool.begin(), cur_pos);
 		*(first++) = move(*it);
 		pool.erase(it);
 		
