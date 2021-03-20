@@ -1,8 +1,8 @@
-#include "SimpleVector.h"
+#include "simpleVector.h"
 #include "testRunner.h"
 
 #include <algorithm>
-#include <iostream>
+#include <numeric>
 #include <vector>
 #include <string>
 using namespace std;
@@ -44,15 +44,18 @@ void TestPushBack()
 	ASSERT(equal(begin(v), end(v), begin(expected)));
 }
 
-void TestPushBack2()
+void TestCopyAssignment()
 {
-	SimpleVector<int> v(100000);
-	v.PushBack(1);
-	ASSERT(v.Size() == 100001);
+	SimpleVector<int> numbers(10);
+	iota(numbers.begin(), numbers.end(), 1);
 
-	/*const vector<int> expected = { 0, 0, 0, 0, 0 };
-	ASSERT_EQUAL(v.Size(), expected.size());
-	ASSERT(equal(begin(v), end(v), begin(expected)));*/
+	SimpleVector<int> dest;
+	ASSERT_EQUAL(dest.Size(), 0u);
+
+	dest = numbers;
+	ASSERT_EQUAL(dest.Size(), numbers.Size());
+	ASSERT(dest.Capacity() >= dest.Size());
+	ASSERT(equal(dest.begin(), dest.end(), numbers.begin()));
 }
 
 int main()
@@ -60,6 +63,6 @@ int main()
 	TestRunner tr;
 	RUN_TEST(tr, TestConstruction);
 	RUN_TEST(tr, TestPushBack);
-	RUN_TEST(tr, TestPushBack2);
+	RUN_TEST(tr, TestCopyAssignment);
 	return 0;
 }
