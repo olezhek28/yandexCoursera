@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "exploreKeyWords", "exploreK
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "synchronized", "synchronized\synchronized.vcxproj", "{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "concurrentMap", "concurrentMap\concurrentMap.vcxproj", "{7DE1B251-76A5-47B8-A623-96EC1FDC1F3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -115,11 +117,18 @@ Global
 		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Debug|x64.ActiveCfg = Debug|x64
 		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Debug|x64.Build.0 = Debug|x64
 		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Debug|x86.ActiveCfg = Debug|Win32
-		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Debug|x86.Build.0 = Debug|Win32
 		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Release|x64.ActiveCfg = Release|x64
 		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Release|x64.Build.0 = Release|x64
 		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Release|x86.ActiveCfg = Release|Win32
 		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Release|x86.Build.0 = Release|Win32
+		{7DE1B251-76A5-47B8-A623-96EC1FDC1F3F}.Debug|x64.ActiveCfg = Debug|x64
+		{7DE1B251-76A5-47B8-A623-96EC1FDC1F3F}.Debug|x64.Build.0 = Debug|x64
+		{7DE1B251-76A5-47B8-A623-96EC1FDC1F3F}.Debug|x86.ActiveCfg = Debug|Win32
+		{7DE1B251-76A5-47B8-A623-96EC1FDC1F3F}.Debug|x86.Build.0 = Debug|Win32
+		{7DE1B251-76A5-47B8-A623-96EC1FDC1F3F}.Release|x64.ActiveCfg = Release|x64
+		{7DE1B251-76A5-47B8-A623-96EC1FDC1F3F}.Release|x64.Build.0 = Release|x64
+		{7DE1B251-76A5-47B8-A623-96EC1FDC1F3F}.Release|x86.ActiveCfg = Release|Win32
+		{7DE1B251-76A5-47B8-A623-96EC1FDC1F3F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
