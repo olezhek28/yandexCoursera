@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "matrixSum", "matrixSum\matr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "exploreKeyWords", "exploreKeyWords\exploreKeyWords.vcxproj", "{6A44F10C-2390-44BE-93F3-9A7E00A39CD5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "synchronized", "synchronized\synchronized.vcxproj", "{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -106,11 +108,18 @@ Global
 		{6A44F10C-2390-44BE-93F3-9A7E00A39CD5}.Debug|x64.ActiveCfg = Debug|x64
 		{6A44F10C-2390-44BE-93F3-9A7E00A39CD5}.Debug|x64.Build.0 = Debug|x64
 		{6A44F10C-2390-44BE-93F3-9A7E00A39CD5}.Debug|x86.ActiveCfg = Debug|Win32
-		{6A44F10C-2390-44BE-93F3-9A7E00A39CD5}.Debug|x86.Build.0 = Debug|Win32
 		{6A44F10C-2390-44BE-93F3-9A7E00A39CD5}.Release|x64.ActiveCfg = Release|x64
 		{6A44F10C-2390-44BE-93F3-9A7E00A39CD5}.Release|x64.Build.0 = Release|x64
 		{6A44F10C-2390-44BE-93F3-9A7E00A39CD5}.Release|x86.ActiveCfg = Release|Win32
 		{6A44F10C-2390-44BE-93F3-9A7E00A39CD5}.Release|x86.Build.0 = Release|Win32
+		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Debug|x64.ActiveCfg = Debug|x64
+		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Debug|x64.Build.0 = Debug|x64
+		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Debug|x86.ActiveCfg = Debug|Win32
+		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Debug|x86.Build.0 = Debug|Win32
+		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Release|x64.ActiveCfg = Release|x64
+		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Release|x64.Build.0 = Release|x64
+		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Release|x86.ActiveCfg = Release|Win32
+		{2BFBE38B-655C-498F-A78C-A2AD5196DBFD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
