@@ -11,20 +11,22 @@ using namespace std;
 
 struct Stats
 {
-	map<string, int> word_frequences;
+	map<string, int> wordFrequences;
 
 	void operator += (const Stats& other)
 	{
-		for(const auto& word : other.word_frequences)
+		for(const auto& word : other.wordFrequences)
 		{
-			word_frequences[word.first] += word.second;
+			wordFrequences[word.first] += word.second;
 		}
 	}
 };
 
-Stats ExploreKeyWords(const set<string>& key_words, istream& input)
+Stats ExploreKeyWords(const set<string>& keyWords, istream& input)
 {
+	const size_t maxWordsSize = 5000;
 	vector<string> words;
+	words.reserve(maxWordsSize);
 
 	for (string line; getline(input, line);)
 	{
@@ -51,14 +53,14 @@ Stats ExploreKeyWords(const set<string>& key_words, istream& input)
 	
 	for (const auto& page : Paginate(words, pageSize))
 	{
-		threadResult.push_back(async([key_words, page]
+		threadResult.push_back(async([keyWords, page]
 		{
 			Stats result;
 
 			for(const auto& word : page)
 			{
-				if (key_words.find(word) != key_words.end())
-					++result.word_frequences[word];
+				if (keyWords.find(word) != keyWords.end())
+					++result.wordFrequences[word];
 			}
 			
 			return result;
@@ -70,9 +72,9 @@ Stats ExploreKeyWords(const set<string>& key_words, istream& input)
 	{
 		auto tmpRes = thread.get();
 
-		for (auto& res : tmpRes.word_frequences)
+		for (auto& res : tmpRes.wordFrequences)
 		{
-			result.word_frequences[res.first] += res.second;
+			result.wordFrequences[res.first] += res.second;
 		}
 	}
 
@@ -99,7 +101,7 @@ void TestBasic()
 		{"sucks", 1}
 	};
 	
-	ASSERT_EQUAL(stats.word_frequences, expected);
+	ASSERT_EQUAL(stats.wordFrequences, expected);
 }
 
 
