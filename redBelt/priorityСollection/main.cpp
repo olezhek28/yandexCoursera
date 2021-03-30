@@ -21,9 +21,10 @@ void TestNoCopy()
 {
 	PriorityCollection<StringNonCopyable> strings;
 	const auto white_id = strings.Add("white");
+	
 	const auto yellow_id = strings.Add("yellow");
 	const auto red_id = strings.Add("red");
-
+	
 	strings.Promote(yellow_id);
 	for (int i = 0; i < 2; ++i) 
 	{
@@ -31,7 +32,7 @@ void TestNoCopy()
 	}
 
 	strings.Promote(yellow_id);
-
+	
 	{
 		const auto item = strings.PopMax();
 		ASSERT_EQUAL(item.first, "red");

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <utility>
 #include <vector>
 
@@ -9,11 +10,28 @@ template <typename T>
 class PriorityCollection
 {
 public:
-	using Id = int;
+	
+	struct Element
+	{
+		size_t id;
+		size_t priority;
+		T value;
 
+		bool operator< (const Element& other) const { return priority < other.priority; }
+
+		/*Element(Id id, int priority, T value) : id(id), priority(priority), value(value)
+		{}
+
+		bool operator< (const Element& other) const { return id < other.id; }
+
+		bool operator<(const Id& id) { return this->id < id; }
+		friend bool operator<(const Id& id, const Element& t) { return id < t.id; }
+		friend bool operator<(const Element& t1, const Element& t2) { return t1.id < t2.id; }*/
+	};
+	
 	// Добавить объект с нулевым приоритетом
 	// с помощью перемещения и вернуть его идентификатор
-	Id Add(T object);
+	size_t Add(T object);
 
 	// Добавить все элементы диапазона [range_begin, range_end)
 	// с помощью перемещения, записав выданные им идентификаторы
@@ -23,33 +41,35 @@ public:
 
 	// Определить, принадлежит ли идентификатор какому-либо
 	// хранящемуся в контейнере объекту
-	bool IsValid(Id id) const;
+	bool IsValid(size_t id) const;
 
 	// Получить объект по идентификатору
-	const T& Get(Id id) const;
+	const T& Get(size_t id) const;
 
 	// Увеличить приоритет объекта на 1
-	void Promote(Id id);
+	void Promote(size_t id);
 
 	// Получить объект с максимальным приоритетом и его приоритет
-	pair<const T&, int> GetMax() const;
+	pair<const T&, size_t> GetMax() const;
 
 	// Аналогично GetMax, но удаляет элемент из контейнера
-	pair<T, int> PopMax();
+	pair<T, size_t> PopMax();
 
 private:
-	vector<pair<int, T>> objects;
-	set<pair<int, Id>, greater<int>> objectsSortByPriority;
-	//vector<pair<priority, val>> tmp2;
-	//set<pair<priority, id>> tmp;
+	vector<Element> objects;
 };
 
 template <typename T>
-typename PriorityCollection<T>::Id PriorityCollection<T>::Add(T object)
+typename size_t PriorityCollection<T>::Add(T object)
 {
-	objects.push_back(make_pair(0, move(object)));
-	objectsSortByPriority.insert(make_pair(0, objects.size() - 1));
-	return objects.size() - 1;
+	objects.push_back(Element
+	{
+		!objects.empty() ? objects.size() : 0,
+		0,
+		move(object)
+	});
+
+	return !objects.empty() ? objects.size() - 1 : 0;
 }
 
 template <typename T>
@@ -58,57 +78,62 @@ void PriorityCollection<T>::Add(ObjInputIt range_begin, ObjInputIt range_end, Id
 {
 	for(auto& it = range_begin; it < range_end; ++it)
 	{
-		objects.push_back(make_pair(0, move(*it)));
-		objectsSortByPriority.insert(make_pair(0, objects.size() - 1));
+		objects.push_back(Element
+		{
+			!objects.empty() ? objects.size() : 0,
+			0,
+			move(*it)
+		});
 		ids_begin++ = objects.size() - 1;
 	}
 }
 
 template <typename T>
-bool PriorityCollection<T>::IsValid(Id id) const
+bool PriorityCollection<T>::IsValid(size_t id) const
 {
-	return objects.size() > id;
+	return true; //return objects.find(id) != objects.end();
 }
 
 template <typename T>
-const T& PriorityCollection<T>::Get(Id id) const
+const T& PriorityCollection<T>::Get(size_t id) const
 {
-	return objects[id].second;
+	return {};// objects[id].second;
 }
 
 template <class T1, class T2>
 bool operator<(const pair<T1, T2>& x, const pair<T1, T2>& y)
 {
-    return x.second < y.second;
+	return true; //x.second < y.second;
 }
 
 template <typename T>
-void PriorityCollection<T>::Promote(Id id)
+void PriorityCollection<T>::Promote(size_t id)
 {
-	++objects[id].first;
+	auto it = find_if(objects.begin(), objects.end(), [id](const Element& elem)
+	{
+		return elem.id == id;
+	});
 
-	auto it = find(objectsSortByPriority.begin(), objectsSortByPriority.end(), 
-		[id](const pair<int, Id>& element)
-		{
-		   return element.second == id;
-		});
-
-	//it->first++;
+	++it->priority;
 }
 
 template <typename T>
-pair<const T&, int> PriorityCollection<T>::GetMax() const
+pair<const T&, size_t> PriorityCollection<T>::GetMax() const
 {
-	return make_pair(objects[objectsSortByPriority.begin()->second].second, objectsSortByPriority.begin()->first);
+	auto it = std::max_element(objects.rbegin(), objects.rend());
+
+	return { it->value, it->priority };
 }
 
 template <typename T>
-pair<T, int> PriorityCollection<T>::PopMax()
+pair<T, size_t> PriorityCollection<T>::PopMax()
 {
-	auto maxElementByPriority = move(*objectsSortByPriority.begin());
-	auto maxElement = move(objects[maxElementByPriority.second].second);
-	objectsSortByPriority.erase(objectsSortByPriority.begin());
-	objects.erase(objects.begin() + maxElementByPriority.second);
+	auto it = std::max_element(objects.rbegin(), objects.rend());
+
+	pair<T, size_t> tmp;
+	tmp.first = move(it->value);
+	tmp.second = move(it->priority);
+	objects.erase(std::next(it).base());
 	
-	return make_pair(maxElement, maxElementByPriority.first);
+	return tmp;
 }
