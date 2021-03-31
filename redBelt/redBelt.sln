@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "concurrentMap", "concurrent
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "objectPool", "objectPool\objectPool.vcxproj", "{88CB8E0E-072C-46F5-8E35-D4B128761639}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "swapSortCopy", "swapSortCopy\swapSortCopy.vcxproj", "{EB8E2A78-5A6C-4007-83FC-47F2C120287F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -138,6 +140,14 @@ Global
 		{88CB8E0E-072C-46F5-8E35-D4B128761639}.Release|x64.Build.0 = Release|x64
 		{88CB8E0E-072C-46F5-8E35-D4B128761639}.Release|x86.ActiveCfg = Release|Win32
 		{88CB8E0E-072C-46F5-8E35-D4B128761639}.Release|x86.Build.0 = Release|Win32
+		{EB8E2A78-5A6C-4007-83FC-47F2C120287F}.Debug|x64.ActiveCfg = Debug|x64
+		{EB8E2A78-5A6C-4007-83FC-47F2C120287F}.Debug|x64.Build.0 = Debug|x64
+		{EB8E2A78-5A6C-4007-83FC-47F2C120287F}.Debug|x86.ActiveCfg = Debug|Win32
+		{EB8E2A78-5A6C-4007-83FC-47F2C120287F}.Debug|x86.Build.0 = Debug|Win32
+		{EB8E2A78-5A6C-4007-83FC-47F2C120287F}.Release|x64.ActiveCfg = Release|x64
+		{EB8E2A78-5A6C-4007-83FC-47F2C120287F}.Release|x64.Build.0 = Release|x64
+		{EB8E2A78-5A6C-4007-83FC-47F2C120287F}.Release|x86.ActiveCfg = Release|Win32
+		{EB8E2A78-5A6C-4007-83FC-47F2C120287F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
