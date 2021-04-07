@@ -44,6 +44,16 @@ ostream& operator << (ostream& os, const Date& date)
 	return os;
 }
 
+istream& operator >> (istream& is, Date& date)
+{
+	is >> date.year;
+	is.ignore(1,'-');
+	is >> date.month;
+	is.ignore(1,'-');
+	is >> date.day;
+	return is;
+}
+
 bool operator < (const Time& time1, const Time& time2)
 {
 	return std::tie(time1.hours, time1.minutes) < std::tie(time2.hours, time2.minutes);
@@ -60,8 +70,23 @@ ostream& operator << (ostream& os, const Time& time)
 	return os;
 }
 
+istream& operator >> (istream& is, Time& time)
+{
+	is >> time.hours;
+	is.ignore(1,':');
+	is >> time.minutes;
+	return is;
+}
+
 #define SORT_BY(field)\
 [](const AirlineTicket& lhs, const AirlineTicket& rhs)  \
 {                                                       \
 	return lhs.field < rhs.field;                       \
+}
+
+#define UPDATE_FIELD(ticket, field, values)         \
+if(values.find(#field) != values.end())             \
+{                                                   \
+	istringstream is (values.find(#field)->second); \
+	is >> ticket.field;                             \
 }
