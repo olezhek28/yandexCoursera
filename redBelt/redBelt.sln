@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "objectPool", "objectPool\ob
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "swapSortCopy", "swapSortCopy\swapSortCopy.vcxproj", "{EB8E2A78-5A6C-4007-83FC-47F2C120287F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "airlineTicket", "airlineTicket\airlineTicket.vcxproj", "{157C907E-82CA-4B78-86D2-0C12ABEF3257}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -148,6 +150,14 @@ Global
 		{EB8E2A78-5A6C-4007-83FC-47F2C120287F}.Release|x64.Build.0 = Release|x64
 		{EB8E2A78-5A6C-4007-83FC-47F2C120287F}.Release|x86.ActiveCfg = Release|Win32
 		{EB8E2A78-5A6C-4007-83FC-47F2C120287F}.Release|x86.Build.0 = Release|Win32
+		{157C907E-82CA-4B78-86D2-0C12ABEF3257}.Debug|x64.ActiveCfg = Debug|x64
+		{157C907E-82CA-4B78-86D2-0C12ABEF3257}.Debug|x64.Build.0 = Debug|x64
+		{157C907E-82CA-4B78-86D2-0C12ABEF3257}.Debug|x86.ActiveCfg = Debug|Win32
+		{157C907E-82CA-4B78-86D2-0C12ABEF3257}.Debug|x86.Build.0 = Debug|Win32
+		{157C907E-82CA-4B78-86D2-0C12ABEF3257}.Release|x64.ActiveCfg = Release|x64
+		{157C907E-82CA-4B78-86D2-0C12ABEF3257}.Release|x64.Build.0 = Release|x64
+		{157C907E-82CA-4B78-86D2-0C12ABEF3257}.Release|x86.ActiveCfg = Release|Win32
+		{157C907E-82CA-4B78-86D2-0C12ABEF3257}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
