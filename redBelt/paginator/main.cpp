@@ -2,7 +2,7 @@
 #include <sstream>
 
 #include "paginator.h"
-#include "test_runner.h"
+#include "testRunner.h"
 
 void TestPageCounts()
 {
