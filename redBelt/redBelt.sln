@@ -45,6 +45,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "learner", "learner\learner.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "express", "express\express.vcxproj", "{E72F8F9B-4394-4A92-988F-34696594D696}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "e-book", "e-book\e-book.vcxproj", "{BC28099F-7AB7-4FC6-A2D2-F02B4A425A69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -208,6 +210,14 @@ Global
 		{E72F8F9B-4394-4A92-988F-34696594D696}.Release|x64.Build.0 = Release|x64
 		{E72F8F9B-4394-4A92-988F-34696594D696}.Release|x86.ActiveCfg = Release|Win32
 		{E72F8F9B-4394-4A92-988F-34696594D696}.Release|x86.Build.0 = Release|Win32
+		{BC28099F-7AB7-4FC6-A2D2-F02B4A425A69}.Debug|x64.ActiveCfg = Debug|x64
+		{BC28099F-7AB7-4FC6-A2D2-F02B4A425A69}.Debug|x64.Build.0 = Debug|x64
+		{BC28099F-7AB7-4FC6-A2D2-F02B4A425A69}.Debug|x86.ActiveCfg = Debug|Win32
+		{BC28099F-7AB7-4FC6-A2D2-F02B4A425A69}.Debug|x86.Build.0 = Debug|Win32
+		{BC28099F-7AB7-4FC6-A2D2-F02B4A425A69}.Release|x64.ActiveCfg = Release|x64
+		{BC28099F-7AB7-4FC6-A2D2-F02B4A425A69}.Release|x64.Build.0 = Release|x64
+		{BC28099F-7AB7-4FC6-A2D2-F02B4A425A69}.Release|x86.ActiveCfg = Release|Win32
+		{BC28099F-7AB7-4FC6-A2D2-F02B4A425A69}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
