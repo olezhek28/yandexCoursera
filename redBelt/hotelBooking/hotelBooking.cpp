@@ -1,7 +1,9 @@
 #include <iomanip>
 #include <iostream>
 #include <map>
-#include <vector>
+#include <queue>
+#include <set>
+#include <list>
 #include <string>
 
 using namespace std;
@@ -10,35 +12,76 @@ struct Room
 {
 	int clientId;
 	int roomCount;
-	int time;
+	int64_t time;
 };
+
+bool operator<(const Room& lhs, const Room& rhs)
+{
+	return tie(lhs.clientId, lhs.roomCount, lhs.time) < tie(rhs.clientId, rhs.roomCount, rhs.time);
+}
 
 class HotelBooking
 {
-	map<string, vector<Room>> db;
-	int currentTime = 0;
+	map<string, queue<Room>> db;
+	map<string, map<int, int64_t>> uniqClients;
+
+	map<string, deque<Room>> events;
+	map<string, int> reserveRooms;
+	
+	int64_t currentTime = 0;
 	
 public:
-	void Book(int time, const string& hotelName, int clientId, int roomCount)
+	void Book(int64_t time, const string& hotelName, int clientId, int roomCount)
 	{
-		db[hotelName].push_back({clientId, roomCount, time});
+		events[hotelName].push_back({clientId, roomCount, time});
+		reserveRooms[hotelName] += roomCount;
+
 		currentTime = time;
+		checkEvents();
+	}
+
+	void checkEvents()
+	{
+		for (auto& event : events)
+		{
+			vector<int> deleteNumbers;
+			deleteNumbers.reserve(event.second.size());
+			
+			for(int i = 0; i < event.second.size(); i++)
+			{
+				if(llabs(currentTime - event.second[i].time) >= 86400)
+				{
+					deleteNumbers.push_back(i);
+				}
+			}
+
+			for(auto& num : deleteNumbers)
+			{
+				reserveRooms[event.first] -= event.second[num].roomCount;
+				event.second.erase(event.second.begin() + num);
+			}
+		}
 	}
 
 	int Clients(const string& hotelName)
 	{
-		return db[hotelName].size();
+		return reserveRooms[hotelName];
 	}
 
 	int Rooms(const string& hotelName)
 	{
 		int count = 0;
 		
-		for(auto room : db[hotelName])
+		for(auto& reservation : events[hotelName])
 		{
-			if((currentTime - room.time) < 86400)
-				count++;
+			if(llabs(currentTime - reservation.time) < 86400)
+			{
+				count += reservation.roomCount;
+			}
 		}
+
+		if (count == 0)
+			events.erase(hotelName);
 
 		return count;
 	}
@@ -61,7 +104,7 @@ int main()
 
 		if (query_type == "BOOK") 
 		{
-			int time;
+			int64_t time;
 			cin >> time;
 
 			string hotelName;
