@@ -155,12 +155,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="event_info.cpp" />
-    <ClCompile Include="hotel_booking_banager.cpp" />
+    <ClCompile Include="booking_info.cpp" />
+    <ClCompile Include="hotel_booking_manager.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="event_info.h" />
+    <ClInclude Include="booking_info.h" />
     <ClInclude Include="hotel_booking_manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

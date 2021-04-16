@@ -2,50 +2,48 @@
 
 #include <iostream>
 
-using namespace std;
-
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr);
 
 	HotelBookingManager manager;
 
 	int queryCount;
-	cin >> queryCount;
+	std::cin >> queryCount;
 
 	for (int queryId = 0; queryId < queryCount; queryId++) 
 	{
-		string hotelName;
-		string queryType;
-		cin >> queryType;
+		std::string hotelName;
+		std::string queryType;
+		std::cin >> queryType;
 
 		if (queryType == "BOOK") 
 		{
 			int64_t time;
-			cin >> time;
+			std::cin >> time;
 
-			cin >> hotelName;
+			std::cin >> hotelName;
 
 			int clientId;
-			cin >> clientId;
+			std::cin >> clientId;
 
 			int roomCount;
-			cin >> roomCount;
+			std::cin >> roomCount;
 
-			manager.AddEvent(time, hotelName, clientId, roomCount);
+			manager.AddBooking(time, hotelName, clientId, roomCount);
 		}
 		else if (queryType == "CLIENTS") 
 		{
-			cin >> hotelName;
+			std::cin >> hotelName;
 			
-			cout << manager.Clients(hotelName) << "\n";
+			std::cout << manager.CountClientsForLastDay(hotelName) << "\n";
 		}
 		else if (queryType == "ROOMS")
 		{
-			cin >> hotelName;
+			std::cin >> hotelName;
 
-			cout << manager.Rooms(hotelName) << "\n";
+			std::cout << manager.CountReservedRoomsForLastDay(hotelName) << "\n";
 		}
 	}
 

@@ -18,18 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="event_info.cpp">
+    <ClCompile Include="booking_info.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hotel_booking_banager.cpp">
+    <ClCompile Include="hotel_booking_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="event_info.h">
+    <ClInclude Include="hotel_booking_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="hotel_booking_manager.h">
+    <ClInclude Include="booking_info.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
